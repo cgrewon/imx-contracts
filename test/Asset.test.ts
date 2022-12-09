@@ -19,7 +19,7 @@ describe("Asset", function () {
     const tokenID = '123';
     const blueprint = '1000';
     const blob = toHex(`{${tokenID}}:{${blueprint}}`);
-
+    console.log('blob:', blob)
     await mintable.mintFor(owner.address, 1, blob);
 
     const oo = await mintable.ownerOf(tokenID);
@@ -47,7 +47,7 @@ describe("Asset", function () {
     const tokenID = '123';
     const blueprint = '';
     const blob = toHex(`{${tokenID}}:{${blueprint}}`);
-
+    console.log('blob:', blob)
     await mintable.mintFor(owner.address, 1, blob);
 
     const bp = await mintable.blueprints(tokenID);
@@ -69,6 +69,7 @@ describe("Asset", function () {
     const mintable = await Asset.deploy(o, name, symbol, imx);
 
     const blob = toHex(`:`);
+    console.log('invalid blob:', blob)
     await expect(mintable.mintFor(owner.address, 1, blob)).to.be.reverted;
 
   });

@@ -5,6 +5,7 @@ import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "./Mintable.sol";
 
 contract Asset is ERC721, Mintable {
+
     constructor(
         address _owner,
         string memory _name,
@@ -19,4 +20,6 @@ contract Asset is ERC721, Mintable {
     ) internal override {
         _safeMint(user, id);
     }
+
+    
 }
